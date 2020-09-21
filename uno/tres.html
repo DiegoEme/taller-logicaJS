@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Al revés</h1>
+
+    <label>Mensaje</label>
+    <input id="mensaje" type="text" />
+    <button id="boton">Al revés</button>
+    <p id="resultado"></p>
+    <p id="resultado2"></p>
+  </body>
+
+  <script>
+    let mensaje = document.getElementById("mensaje");
+    let boton = document.getElementById("boton");
+    let resultado = document.getElementById("resultado");
+    let resultado2 = document.getElementById("resultado2");
+
+    boton.addEventListener("click", () => {
+      let elMensaje = mensaje.value;
+
+      let reverse = elMensaje.split("");
+      let res = "";
+
+      for (i in reverse) {
+        resultado2.innerHTML = res += reverse[i] + "-";
+      }
+    });
+  </script>
+</html>

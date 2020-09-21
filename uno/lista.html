@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="">Ingrese Nombre</label>
+      <input id="nombre" type="text" />
+      <button id="agregar" type="submit">Agregar</button>
+    </form>
+    <ul id="lista"></ul>
+    <div id="arr"></div>
+
+    <script>
+      //traigo el input a JS
+      let nombre = document.getElementById("nombre");
+      //traigo el boton agregar
+      let agregar = document.getElementById("agregar");
+      //creo un array para guardar los datos ingresados al input
+      let array = [];
+
+      let arr = document.getElementById("arr");
+
+      //Agrego evento cuando se click al boton agregar
+      agregar.addEventListener("click", (e) => {
+        e.preventDefault();
+        //guardo los datos del input en el array
+        array.push(nombre.value);
+
+        array.sort();
+
+        let hasDuplicate = array.some((val, i) => array.indexOf(val) !== i);
+
+        for (let i in array) {
+          if (hasDuplicate) {
+            alert("Ese nombre ya está");
+          } else {
+            arr.innerHTML = array;
+          }
+        }
+
+        //limpio el input
+        nombre.value = "";
+      });
+    </script>
+  </body>
+</html>
